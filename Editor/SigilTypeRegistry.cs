@@ -54,7 +54,7 @@ namespace Proselyte.Sigils
 
             string code = $@"using UnityEngine;
 using System;
-namespace {nameof(Proselyte.Sigils)}
+namespace {nameof(Proselyte)+ "." +nameof(Proselyte.Sigils)}
 {{
     [CreateAssetMenu(menuName = ""Variables /{capitalizedtypeAlias}"")]
     public class {className} : ScriptableObject
@@ -78,7 +78,7 @@ namespace {nameof(Proselyte.Sigils)}
             string code = $@"using UnityEngine;
 using System;
 
-namespace {nameof(Proselyte.Sigils)}
+namespace {nameof(Proselyte) + "." + nameof(Proselyte.Sigils)}
 {{
     [Serializable]
     public class {className}
@@ -107,7 +107,7 @@ namespace {nameof(Proselyte.Sigils)}
             string code = $@"using UnityEngine;
 using UnityEditor;
 
-namespace {nameof(Proselyte.Sigils)}
+namespace {nameof(Proselyte) + "." + nameof(Proselyte.Sigils)}
 {{
     [CustomPropertyDrawer(typeof({capitalizedtypeAlias}Reference))]
     public class {className} : BaseReferenceDrawer

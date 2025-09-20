@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Proselyte.Sigils
 {
-    internal abstract class BaseReferenceDrawer : PropertyDrawer
+    public abstract class BaseReferenceDrawer : PropertyDrawer
     {
         private readonly string[] popupOptions = { "Use Constant", "Use Variable" };
         private GUIStyle popupStyle;
