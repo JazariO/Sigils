@@ -1,0 +1,12 @@
+{
+  "name": "com.proselyte.sigils",
+  "version": "0.1.0-alpha",
+  "displayName": "Proselyte Sigils",
+  "description": "Share data between scenes and components in Unity using scriptable objects. Inspired by Ryan Hipple's Game Architecture with Scriptable Objects: https://github.com/roboryantron/Unite2017",
+  "unity": "6000.0",
+  "license": "MIT",
+  "author": {
+    "name": "Jazari",
+    "url": "https://github.com/JazariO"
+  }
+}
