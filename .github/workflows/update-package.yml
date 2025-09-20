@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}  # Use built-in token
-          ref: main  # Replace with your default branch if not 'main'
+          ref: master  # Replace with your default branch if not 'main'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
