@@ -12,7 +12,6 @@ namespace Proselyte.Sigils
 
         public void Raise()
         {
-            Debug.Log("Raising Event: " + name);
             foreach(var listener in listeners)
             {
                 listener.Invoke();
