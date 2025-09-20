@@ -5,9 +5,9 @@ using UnityEditor;
 
 namespace Proselyte.Sigils
 {
-    public static class SigilTypeRegistry
+    internal static class SigilTypeRegistry
     {
-        public class SigilTypeEntry
+        internal class SigilTypeEntry
         {
             public Type Type { get; }
             public string Alias { get; }
@@ -19,7 +19,7 @@ namespace Proselyte.Sigils
             }
         }
 
-        public static readonly SigilTypeEntry[] SupportedTypes = new[]
+        internal static readonly SigilTypeEntry[] SupportedTypes = new[]
         {
         new SigilTypeEntry(typeof(bool), "bool"),
         new SigilTypeEntry(typeof(float), "float"),

@@ -4,7 +4,7 @@ using UnityEditor;
 namespace Proselyte.Sigils
 {
     [CustomPropertyDrawer(typeof(BoolReference))]
-    public class BoolReferenceDrawer : BaseReferenceDrawer
+    internal class BoolReferenceDrawer : BaseReferenceDrawer
     {
         protected override string ConstantFieldName => "ConstantValue";
         protected override string VariableFieldName => "Variable";

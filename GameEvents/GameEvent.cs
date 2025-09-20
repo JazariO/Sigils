@@ -5,7 +5,7 @@ using System;
 
 namespace Proselyte.Sigils
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Sigils/Events/GameEvent")]
     public class GameEvent : ScriptableObject
     {
         private readonly List<UnityAction> listeners = new();

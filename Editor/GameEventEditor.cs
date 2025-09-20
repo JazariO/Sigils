@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Proselyte.Sigils
 {
     [CustomEditor(typeof(GameEvent))]
-    public class GameEventEditor : Editor
+    internal class GameEventEditor : Editor
     {
         public override void OnInspectorGUI()
         {

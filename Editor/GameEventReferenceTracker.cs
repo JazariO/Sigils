@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Proselyte.Sigils
 {
-    public class GameEventReferenceTracker : EditorWindow
+    internal class GameEventReferenceTracker : EditorWindow
     {
         private Dictionary<GameEvent, List<(Object source, GameEventUsageType usage)>> gameEventConnections = new();
         private Dictionary<GameEvent, bool> foldoutStates = new();
