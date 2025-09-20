@@ -21,15 +21,15 @@ namespace Proselyte.Sigils
 
         internal static readonly SigilTypeEntry[] SupportedTypes = new[]
         {
-        new SigilTypeEntry(typeof(bool), "bool"),
-        new SigilTypeEntry(typeof(float), "float"),
-        new SigilTypeEntry(typeof(int), "int"),
-        new SigilTypeEntry(typeof(string), "string"),
-        new SigilTypeEntry(typeof(Vector2), "Vector2"),
-        new SigilTypeEntry(typeof(Vector3), "Vector3"),
-        new SigilTypeEntry(typeof(Color), "Color"),
-        // Add new sigil types here...
-    };
+            new SigilTypeEntry(typeof(bool), "bool"),
+            new SigilTypeEntry(typeof(float), "float"),
+            new SigilTypeEntry(typeof(int), "int"),
+            new SigilTypeEntry(typeof(string), "string"),
+            new SigilTypeEntry(typeof(Vector2), "Vector2"),
+            new SigilTypeEntry(typeof(Vector3), "Vector3"),
+            new SigilTypeEntry(typeof(Color), "Color"),
+            // Add new sigil types here...
+        };
 
         private const string k_SigilArchitecturePath = "Plugins/Sigils/";
 
@@ -54,13 +54,14 @@ namespace Proselyte.Sigils
 
             string code = $@"using UnityEngine;
 using System;
-
-[CreateAssetMenu(menuName = ""Variables/{capitalizedtypeAlias}"")]
-public class {className} : ScriptableObject
+namespace {nameof(Proselyte.Sigils)}
 {{
-    public {sigilTypeEntry.Alias} value;
+    [CreateAssetMenu(menuName = ""Variables /{capitalizedtypeAlias}"")]
+    public class {className} : ScriptableObject
+    {{
+        public {sigilTypeEntry.Alias} value;
+    }}
 }}";
-
             string folderPath = Path.Combine(Application.dataPath, k_SigilArchitecturePath, "SigilVariables");
             string filePath = Path.Combine(folderPath, $"{className}.cs");
             if(!Directory.Exists(folderPath))
@@ -77,14 +78,17 @@ public class {className} : ScriptableObject
             string code = $@"using UnityEngine;
 using System;
 
-[Serializable]
-public class {className}
+namespace {nameof(Proselyte.Sigils)}
 {{
-    public bool UseConstant = true;
-    public {sigilTypeEntry.Alias} ConstantValue;
-    public {capitalizedtypeAlias}Variable Variable;
-
-    public {sigilTypeEntry.Alias} Value => UseConstant ? ConstantValue : Variable.value;
+    [Serializable]
+    public class {className}
+    {{
+        public bool UseConstant = true;
+        public {sigilTypeEntry.Alias} ConstantValue;
+        public {capitalizedtypeAlias}Variable Variable;
+    
+        public {sigilTypeEntry.Alias} Value => UseConstant ? ConstantValue : Variable.value;
+    }}
 }}";
 
             string folderPath = Path.Combine(Application.dataPath, k_SigilArchitecturePath, "SigilReferences");
@@ -103,11 +107,14 @@ public class {className}
             string code = $@"using UnityEngine;
 using UnityEditor;
 
-[CustomPropertyDrawer(typeof({capitalizedtypeAlias}Reference))]
-public class {className} : BaseReferenceDrawer
+namespace {nameof(Proselyte.Sigils)}
 {{
-    protected override string ConstantFieldName => ""ConstantValue"";
-    protected override string VariableFieldName => ""Variable"";
+    [CustomPropertyDrawer(typeof({capitalizedtypeAlias}Reference))]
+    public class {className} : BaseReferenceDrawer
+    {{
+        protected override string ConstantFieldName => ""ConstantValue"";
+        protected override string VariableFieldName => ""Variable"";
+    }}
 }}";
 
             string folderPath = Path.Combine(Application.dataPath, k_SigilArchitecturePath, "Editor/SigilTypeDrawers");
