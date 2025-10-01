@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -10,3 +11,4 @@ namespace Proselyte.Sigils
         protected override string VariableFieldName => "Variable";
     }
 }
+#endif
